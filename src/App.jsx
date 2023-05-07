@@ -1,7 +1,11 @@
 import React from "react"
 import Header from "./Components/header"
-import { Container } from "./Components/styled/Container"
+import Footer from "./Components/Footer"
+import { Container } from "./Components/styled/Container.styled"
 import { ThemeProvider } from "styled-components"
+import content from "./content"
+import Card from "./Components/Card"
+import Footers from "./Components/Footer"
 function App() {
 
 const theme ={
@@ -10,6 +14,7 @@ const theme ={
     body:"#fff",
     footer: "#003333",
   },
+  mobile: '768px',
 }
   
   return (
@@ -17,8 +22,9 @@ const theme ={
     <>
     <Header />
     <Container>
-      <h1>Hello World</h1>
+      {content.map((item,index)=>(<Card key={index} item={item} />))}
     </Container>
+    <Footers/>
     </>
     </ThemeProvider>
   )
